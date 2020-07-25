@@ -31,6 +31,8 @@ def individual_blog(id):
 
     comments = Comment.get_comment(id)
 
+    print(comments)
+
     if individual_blog is None:
         abort (404)
 
@@ -54,7 +56,7 @@ def new_comment(id):
 
         comment = form.comment.data
 
-        new_comment = Comment(comment=comment, user_id=current_user.id, blog_id=blog.id)
+        new_comment = Comment(comments=comment, user_id=current_user.id, blog_id=blog.id)
 
         new_comment.save_comment()
 
