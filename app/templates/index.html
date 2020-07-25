@@ -1,16 +1,33 @@
 {% extends 'base.html'%}
-
+{% import 'macros.html' as macro %}
 {% block content%}
-<h1>Welcome to the home page</h1>
 
-<!-- Random Quotes Display -->
-{% for quote in quotes%}
-<div class="quotes">
-    <h1>{{quote.author}}</h1>
-    <p>{{quote.quote}}</p>
-    <a href="{{quote.url}}">View Quote</a>
+<div class="container">
+    <div class="row">  
+        <div class="col-md-9">
+
+        
+
+            {% if current_user.is_authenticated%}
+            <h1>Hello {{current_user.username}} Welcome to our blog 😊 </h1>
+
+            {%endif%}
+
+
+            <!-- Random Quotes Display -->
+            {% for quote in quotes %}
+            <div class="quotes">
+                <h1>{{quote.author}}</h1>
+                <p>{{quote.quote}}</p>
+                <a href="{{quote.url}}">View Quote</a>
+            </div>
+            {% endfor %}
+            <div class="blog-display">
+                {{ macro.displayBlogList (blogs) }}
+            </div>
+        </div>
+    </div>
+
 </div>
-
-{% endfor %}
 
 {% endblock %}
