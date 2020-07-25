@@ -22,4 +22,25 @@ def get_quotes():
     return quote_results
 
 
-    
+def process_results(quote_list):
+    '''
+    Function  that processes the Quote result and transform them to a list of Objects
+
+    Args:
+        Quote_list: A dictionary that contains quote details
+
+    Returns :
+        Quote_results: A list of QQuote objects
+    '''
+    quote_results = []
+    for quote_item in quote_list:
+        author= quote_item.get('author')
+        id = quote_item.get('id')
+        quote= quote_item.get('quote')
+        url = quote_item.get('permalink')
+
+        
+        quote_object = Quote(author,id,quote,url)
+        quote_results.append(quote_object)
+
+    return quote_results
