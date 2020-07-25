@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+
+    {% macro displayBlogList (blog_list) %}
+
+        {% for blog in blog_list %}
+
+            <div class="container">
+
+                <div class="row">
+
+                    <li style="list-style-type: none;">
+
+                        <h2>
+                            <a href="{{url_for('main.individual_blog', id = blog.id)}}">
+                                {{ blog.title }}
+                            </a>
+                        </h2>
+
+                        <br>
+
+                            <p style="margin-left: 30px;"> {{ blog.description }}</p>
+
+                        <hr>
+
+                    </li>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% endmacro %}
+
+
+    {% macro displayCommentList(comment_list) %}
+
+        {% for comment in comment_list %}
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+                        <li>
+
+                            <p> {{comment.comment}} </p>
+
+                            <p> posted by {{ comment.user.username }} </p>
+
+                        </li>
+
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% endmacro %}
+
+</body>
+</html>
