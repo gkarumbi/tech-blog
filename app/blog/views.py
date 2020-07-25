@@ -1,7 +1,7 @@
 from flask import render_template, redirect, request, url_for, abort
 from flask_login import login_required, current_user
 from ..models import User
-from .forms import BlogForm, CommentForm
+from .forms import BlogForm
 from . import blog
 from ..models import Blog, Comment
 from .. import db

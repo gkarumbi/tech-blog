@@ -5,6 +5,7 @@ from .forms import RegistrationForm,LoginForm
 from .. import  db
 from . import auth
 
+
 @auth.route('/login', methods = ["GET","POST"])
 def login():
     login_form = LoginForm()
@@ -33,4 +34,4 @@ def register():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("main.index"))
+    return redirect(url_for('main.index'))

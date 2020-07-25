@@ -12,8 +12,3 @@ class BlogForm(FlaskForm):
 
 
 
-class CommentForm(FlaskForm):
-
-    review = TextAreaField('Add Comments')
-
-    submit = SubmitField('Submit')

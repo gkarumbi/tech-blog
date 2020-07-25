@@ -29,10 +29,12 @@ def create_app(config_name):
     app.register_blueprint(main_blueprint)
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+    # registering blog blueprint
+    from .blog import blog as blog_blueprint
+    app.register_blueprint(blog_blueprint, url_prefix = '/blog')
 
     # setting config
-    """ from .request import configure_request
-    configure_request(app) """
+    
 
     # Will add the views and forms
 

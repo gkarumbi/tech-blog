@@ -56,7 +56,7 @@ class Blog(db.Model):
     title = db.Column(db.String)
     blog = db.Column(db.String)
     posted = db.Column(db.DateTime, default=datetime.now(tz=None))
-    comment_id = db.relationship('comment', backref='blog', lazy='dynamic')
+    comment_id = db.relationship('Comment', backref='blog', lazy='dynamic')
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save_blog(self):
@@ -100,7 +100,7 @@ class Comment(db.Model):
 
     @classmethod
     def get_comment(cls, id):
-        reviews = Comment.query.filter_by(blog_id=id).all()
+        comments= Comment.query.filter_by(blog_id=id).all()
         return comments
 
     @classmethod
