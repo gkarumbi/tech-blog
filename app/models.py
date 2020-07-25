@@ -10,6 +10,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class User(UserMixin,db.Model):
+    
     __tablename__= 'users'
 
     
@@ -34,3 +35,13 @@ class User(UserMixin,db.Model):
     
     def __repr__(self):
         return f'User{self.username}'
+
+class Quote:
+    '''
+    Class to define our Quote objects
+    '''
+    def __init__(self,author,id,quote,url):
+        self.author = author
+        self.id = id
+        self.quote = quote
+        self.url = url
